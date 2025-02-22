@@ -23,29 +23,29 @@ type PkiTidyRequest struct {
 	SafetyBuffer string `json:"safety_buffer,omitempty"`
 
 	// Set to true to enable tidying ACME accounts, orders and authorizations. ACME orders are tidied (deleted) safety_buffer after the certificate associated with them expires, or after the order and relevant authorizations have expired if no certificate was produced. Authorizations are tidied with the corresponding order. When a valid ACME Account is at least acme_account_safety_buffer old, and has no remaining orders associated with it, the account is marked as revoked. After another acme_account_safety_buffer has passed from the revocation or deactivation date, a revoked or deactivated ACME account is deleted.
-	TidyAcme bool `json:"tidy_acme,omitempty"`
+	TidyAcme *bool `json:"tidy_acme,omitempty"`
 
 	// Set to true to enable tidying up the certificate store
-	TidyCertStore bool `json:"tidy_cert_store,omitempty"`
+	TidyCertStore *bool `json:"tidy_cert_store,omitempty"`
 
 	// Set to true to enable tidying up the cross-cluster revoked certificate store. Only runs on the active primary node.
-	TidyCrossClusterRevokedCerts bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
+	TidyCrossClusterRevokedCerts *bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
 
 	// Set to true to automatically remove expired issuers past the issuer_safety_buffer. No keys will be removed as part of this operation.
-	TidyExpiredIssuers bool `json:"tidy_expired_issuers,omitempty"`
+	TidyExpiredIssuers *bool `json:"tidy_expired_issuers,omitempty"`
 
 	// Set to true to move the legacy ca_bundle from /config/ca_bundle to /config/ca_bundle.bak. This prevents downgrades to pre-Vault 1.11 versions (as older PKI engines do not know about the new multi-issuer storage layout), but improves the performance on seal wrapped PKI mounts. This will only occur if at least issuer_safety_buffer time has occurred after the initial storage migration. This backup is saved in case of an issue in future migrations. Operators may consider removing it via sys/raw if they desire. The backup will be removed via a DELETE /root call, but note that this removes ALL issuers within the mount (and is thus not desirable in most operational scenarios).
-	TidyMoveLegacyCaBundle bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
+	TidyMoveLegacyCaBundle *bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
 
 	// Deprecated; synonym for 'tidy_revoked_certs
-	TidyRevocationList bool `json:"tidy_revocation_list,omitempty"`
+	TidyRevocationList *bool `json:"tidy_revocation_list,omitempty"`
 
 	// Set to true to remove stale revocation queue entries that haven't been confirmed by any active cluster. Only runs on the active primary node
-	TidyRevocationQueue bool `json:"tidy_revocation_queue,omitempty"`
+	TidyRevocationQueue *bool `json:"tidy_revocation_queue,omitempty"`
 
 	// Set to true to validate issuer associations on revocation entries. This helps increase the performance of CRL building and OCSP responses.
-	TidyRevokedCertIssuerAssociations bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
+	TidyRevokedCertIssuerAssociations *bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
 
 	// Set to true to expire all revoked and expired certificates, removing them both from the CRL and from storage. The CRL will be rotated if this causes any values to be removed.
-	TidyRevokedCerts bool `json:"tidy_revoked_certs,omitempty"`
+	TidyRevokedCerts *bool `json:"tidy_revoked_certs,omitempty"`
 }

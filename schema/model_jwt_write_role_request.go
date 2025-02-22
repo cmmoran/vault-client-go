@@ -76,7 +76,7 @@ type JwtWriteRoleRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`
@@ -101,8 +101,8 @@ type JwtWriteRoleRequest struct {
 	UserClaim string `json:"user_claim,omitempty"`
 
 	// If true, the user_claim value will use JSON pointer syntax for referencing claims.
-	UserClaimJsonPointer bool `json:"user_claim_json_pointer,omitempty"`
+	UserClaimJsonPointer *bool `json:"user_claim_json_pointer,omitempty"`
 
 	// Log received OIDC tokens and claims when debug-level logging is active. Not recommended in production since sensitive information may be present in OIDC responses.
-	VerboseOidcLogging bool `json:"verbose_oidc_logging,omitempty"`
+	VerboseOidcLogging *bool `json:"verbose_oidc_logging,omitempty"`
 }

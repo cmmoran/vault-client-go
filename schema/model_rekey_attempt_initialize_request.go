@@ -8,13 +8,13 @@ package schema
 // RekeyAttemptInitializeRequest struct for RekeyAttemptInitializeRequest
 type RekeyAttemptInitializeRequest struct {
 	// Specifies if using PGP-encrypted keys, whether Vault should also store a plaintext backup of the PGP-encrypted keys.
-	Backup bool `json:"backup,omitempty"`
+	Backup *bool `json:"backup,omitempty"`
 
 	// Specifies an array of PGP public keys used to encrypt the output unseal keys. Ordering is preserved. The keys must be base64-encoded from their original binary representation. The size of this array must be the same as secret_shares.
 	PgpKeys []string `json:"pgp_keys,omitempty"`
 
 	// Turns on verification functionality
-	RequireVerification bool `json:"require_verification,omitempty"`
+	RequireVerification *bool `json:"require_verification,omitempty"`
 
 	// Specifies the number of shares to split the unseal key into.
 	SecretShares int32 `json:"secret_shares,omitempty"`

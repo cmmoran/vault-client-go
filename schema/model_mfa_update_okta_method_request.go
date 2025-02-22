@@ -20,10 +20,10 @@ type MfaUpdateOktaMethodRequest struct {
 	OrgName string `json:"org_name,omitempty"`
 
 	// If true, the username will only match the primary email for the account. Defaults to false.
-	PrimaryEmail bool `json:"primary_email,omitempty"`
+	PrimaryEmail *bool `json:"primary_email,omitempty"`
 
 	// (DEPRECATED) Use base_url instead.
-	Production bool `json:"production,omitempty"`
+	Production *bool `json:"production,omitempty"`
 
 	// A template string for mapping Identity names to MFA method names. Values to substitute should be placed in {{}}. For example, \"{{entity.name}}@example.com\". If blank, the Entity's name field will be used as-is.
 	UsernameFormat string `json:"username_format,omitempty"`

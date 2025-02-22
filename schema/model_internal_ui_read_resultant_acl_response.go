@@ -11,5 +11,5 @@ type InternalUiReadResultantAclResponse struct {
 
 	GlobPaths map[string]interface{} `json:"glob_paths,omitempty"`
 
-	Root bool `json:"root,omitempty"`
+	Root *bool `json:"root,omitempty"`
 }

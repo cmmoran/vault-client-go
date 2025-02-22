@@ -8,5 +8,5 @@ package schema
 // PkiRotateCrlResponse struct for PkiRotateCrlResponse
 type PkiRotateCrlResponse struct {
 	// Whether rotation was successful
-	Success bool `json:"success,omitempty"`
+	Success *bool `json:"success,omitempty"`
 }

@@ -11,19 +11,19 @@ type SshWriteRoleRequest struct {
 	AlgorithmSigner string `json:"algorithm_signer,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, host certificates that are requested are allowed to use the base domains listed in \"allowed_domains\", e.g. \"example.com\". This is a separate option as in some cases this can be considered a security threat.
-	AllowBareDomains bool `json:"allow_bare_domains,omitempty"`
+	AllowBareDomains *bool `json:"allow_bare_domains,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, certificates are allowed to be signed for use as a 'host'.
-	AllowHostCertificates bool `json:"allow_host_certificates,omitempty"`
+	AllowHostCertificates *bool `json:"allow_host_certificates,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, host certificates that are requested are allowed to use subdomains of those listed in \"allowed_domains\".
-	AllowSubdomains bool `json:"allow_subdomains,omitempty"`
+	AllowSubdomains *bool `json:"allow_subdomains,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, certificates are allowed to be signed for use as a 'user'.
-	AllowUserCertificates bool `json:"allow_user_certificates,omitempty"`
+	AllowUserCertificates *bool `json:"allow_user_certificates,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If true, users can override the key ID for a signed certificate with the \"key_id\" field. When false, the key ID will always be the token display name. The key ID is logged by the SSH server and can be useful for auditing.
-	AllowUserKeyIds bool `json:"allow_user_key_ids,omitempty"`
+	AllowUserKeyIds *bool `json:"allow_user_key_ids,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] A comma-separated list of critical options that certificates can have when signed. To allow any critical options, set this to an empty string.
 	AllowedCriticalOptions string `json:"allowed_critical_options,omitempty"`
@@ -32,7 +32,7 @@ type SshWriteRoleRequest struct {
 	AllowedDomains string `json:"allowed_domains,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, Allowed domains can be specified using identity template policies. Non-templated domains are also permitted.
-	AllowedDomainsTemplate bool `json:"allowed_domains_template,omitempty"`
+	AllowedDomainsTemplate *bool `json:"allowed_domains_template,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] A comma-separated list of extensions that certificates can have when signed. An empty list means that no extension overrides are allowed by an end-user; explicitly specify '*' to allow any extensions to be set.
 	AllowedExtensions string `json:"allowed_extensions,omitempty"`
@@ -44,7 +44,7 @@ type SshWriteRoleRequest struct {
 	AllowedUsers string `json:"allowed_users,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, Allowed users can be specified using identity template policies. Non-templated users are also permitted.
-	AllowedUsersTemplate bool `json:"allowed_users_template,omitempty"`
+	AllowedUsersTemplate *bool `json:"allowed_users_template,omitempty"`
 
 	// [Optional for OTP type] [Not applicable for CA type] Comma separated list of CIDR blocks for which the role is applicable for. CIDR blocks can belong to more than one role.
 	CidrList string `json:"cidr_list,omitempty"`
@@ -56,13 +56,13 @@ type SshWriteRoleRequest struct {
 	DefaultExtensions map[string]interface{} `json:"default_extensions,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, Default extension values can be specified using identity template policies. Non-templated extension values are also permitted.
-	DefaultExtensionsTemplate bool `json:"default_extensions_template,omitempty"`
+	DefaultExtensionsTemplate *bool `json:"default_extensions_template,omitempty"`
 
 	// [Required for OTP type] [Optional for CA type] Default username for which a credential will be generated. When the endpoint 'creds/' is used without a username, this value will be used as default username.
 	DefaultUser string `json:"default_user,omitempty"`
 
 	// [Not applicable for OTP type] [Optional for CA type] If set, Default user can be specified using identity template policies. Non-templated users are also permitted.
-	DefaultUserTemplate bool `json:"default_user_template,omitempty"`
+	DefaultUserTemplate *bool `json:"default_user_template,omitempty"`
 
 	// [Optional for OTP type] [Not applicable for CA type] Comma separated list of CIDR blocks. IP addresses belonging to these blocks are not accepted by the role. This is particularly useful when big CIDR blocks are being used by the role and certain parts of it needs to be kept out.
 	ExcludeCidrList string `json:"exclude_cidr_list,omitempty"`

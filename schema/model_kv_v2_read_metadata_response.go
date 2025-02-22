@@ -9,7 +9,7 @@ import "time"
 
 // KvV2ReadMetadataResponse struct for KvV2ReadMetadataResponse
 type KvV2ReadMetadataResponse struct {
-	CasRequired bool `json:"cas_required,omitempty"`
+	CasRequired *bool `json:"cas_required,omitempty"`
 
 	CreatedTime time.Time `json:"created_time,omitempty"`
 

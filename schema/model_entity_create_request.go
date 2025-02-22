@@ -8,7 +8,7 @@ package schema
 // EntityCreateRequest struct for EntityCreateRequest
 type EntityCreateRequest struct {
 	// If set true, tokens tied to this identity will not be able to be used (but will not be revoked).
-	Disabled bool `json:"disabled,omitempty"`
+	Disabled *bool `json:"disabled,omitempty"`
 
 	// ID of the entity. If set, updates the corresponding existing entity.
 	Id string `json:"id,omitempty"`

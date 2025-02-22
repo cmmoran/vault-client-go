@@ -8,31 +8,31 @@ package schema
 // PkiWriteRoleRequest struct for PkiWriteRoleRequest
 type PkiWriteRoleRequest struct {
 	// If set, clients can request certificates for any domain, regardless of allowed_domains restrictions. See the documentation for more information.
-	AllowAnyName bool `json:"allow_any_name,omitempty"`
+	AllowAnyName *bool `json:"allow_any_name,omitempty"`
 
 	// If set, clients can request certificates for the base domains themselves, e.g. \"example.com\" of domains listed in allowed_domains. This is a separate option as in some cases this can be considered a security threat. See the documentation for more information.
-	AllowBareDomains bool `json:"allow_bare_domains,omitempty"`
+	AllowBareDomains *bool `json:"allow_bare_domains,omitempty"`
 
 	// If set, domains specified in allowed_domains can include shell-style glob patterns, e.g. \"ftp*.example.com\". See the documentation for more information.
-	AllowGlobDomains bool `json:"allow_glob_domains,omitempty"`
+	AllowGlobDomains *bool `json:"allow_glob_domains,omitempty"`
 
 	// If set, IP Subject Alternative Names are allowed. Any valid IP is accepted and No authorization checking is performed.
-	AllowIpSans bool `json:"allow_ip_sans,omitempty"`
+	AllowIpSans *bool `json:"allow_ip_sans,omitempty"`
 
 	// Whether to allow \"localhost\" and \"localdomain\" as a valid common name in a request, independent of allowed_domains value.
-	AllowLocalhost bool `json:"allow_localhost,omitempty"`
+	AllowLocalhost *bool `json:"allow_localhost,omitempty"`
 
 	// If set, clients can request certificates for subdomains of domains listed in allowed_domains, including wildcard subdomains. See the documentation for more information.
-	AllowSubdomains bool `json:"allow_subdomains,omitempty"`
+	AllowSubdomains *bool `json:"allow_subdomains,omitempty"`
 
 	// If set, allows certificates with wildcards in the common name to be issued, conforming to RFC 6125's Section 6.4.3; e.g., \"*.example.net\" or \"b*z.example.net\". See the documentation for more information.
-	AllowWildcardCertificates bool `json:"allow_wildcard_certificates,omitempty"`
+	AllowWildcardCertificates *bool `json:"allow_wildcard_certificates,omitempty"`
 
 	// Specifies the domains this role is allowed to issue certificates for. This is used with the allow_bare_domains, allow_subdomains, and allow_glob_domains to determine matches for the common name, DNS-typed SAN entries, and Email-typed SAN entries of certificates. See the documentation for more information. This parameter accepts a comma-separated string or list of domains.
 	AllowedDomains []string `json:"allowed_domains,omitempty"`
 
 	// If set, Allowed domains can be specified using identity template policies. Non-templated domains are also permitted.
-	AllowedDomainsTemplate bool `json:"allowed_domains_template,omitempty"`
+	AllowedDomainsTemplate *bool `json:"allowed_domains_template,omitempty"`
 
 	// If set, an array of allowed other names to put in SANs. These values support globbing and must be in the format <oid>;<type>:<value>. Currently only \"utf8\" is a valid type. All values, including globbing values, must use this syntax, with the exception being a single \"*\" which allows any OID and any value (but type must still be utf8).
 	AllowedOtherSans []string `json:"allowed_other_sans,omitempty"`
@@ -44,7 +44,7 @@ type PkiWriteRoleRequest struct {
 	AllowedUriSans []string `json:"allowed_uri_sans,omitempty"`
 
 	// If set, Allowed URI SANs can be specified using identity template policies. Non-templated URI SANs are also permitted.
-	AllowedUriSansTemplate bool `json:"allowed_uri_sans_template,omitempty"`
+	AllowedUriSansTemplate *bool `json:"allowed_uri_sans_template,omitempty"`
 
 	// If set, an array of allowed user-ids to put in user system login name specified here: https://www.rfc-editor.org/rfc/rfc1274#section-9.3.1
 	AllowedUserIds []string `json:"allowed_user_ids,omitempty"`
@@ -53,25 +53,25 @@ type PkiWriteRoleRequest struct {
 	Backend string `json:"backend,omitempty"`
 
 	// Mark Basic Constraints valid when issuing non-CA certificates.
-	BasicConstraintsValidForNonCa bool `json:"basic_constraints_valid_for_non_ca,omitempty"`
+	BasicConstraintsValidForNonCa *bool `json:"basic_constraints_valid_for_non_ca,omitempty"`
 
 	// If set, certificates are flagged for client auth use. Defaults to true. See also RFC 5280 Section 4.2.1.12.
-	ClientFlag bool `json:"client_flag,omitempty"`
+	ClientFlag *bool `json:"client_flag,omitempty"`
 
 	// List of allowed validations to run against the Common Name field. Values can include 'email' to validate the CN is a email address, 'hostname' to validate the CN is a valid hostname (potentially including wildcards). When multiple validations are specified, these take OR semantics (either email OR hostname are allowed). The special value 'disabled' allows disabling all CN name validations, allowing for arbitrary non-Hostname, non-Email address CNs.
 	CnValidations []string `json:"cn_validations,omitempty"`
 
 	// If set, certificates are flagged for code signing use. Defaults to false. See also RFC 5280 Section 4.2.1.12.
-	CodeSigningFlag bool `json:"code_signing_flag,omitempty"`
+	CodeSigningFlag *bool `json:"code_signing_flag,omitempty"`
 
 	// If set, Country will be set to this value in certificates issued by this role.
 	Country []string `json:"country,omitempty"`
 
 	// If set, certificates are flagged for email protection use. Defaults to false. See also RFC 5280 Section 4.2.1.12.
-	EmailProtectionFlag bool `json:"email_protection_flag,omitempty"`
+	EmailProtectionFlag *bool `json:"email_protection_flag,omitempty"`
 
 	// If set, only valid host names are allowed for CN and DNS SANs, and the host part of email addresses. Defaults to true.
-	EnforceHostnames bool `json:"enforce_hostnames,omitempty"`
+	EnforceHostnames *bool `json:"enforce_hostnames,omitempty"`
 
 	// A comma-separated string or list of extended key usages. Valid values can be found at https://golang.org/pkg/crypto/x509/#ExtKeyUsage -- simply drop the \"ExtKeyUsage\" part of the name. To remove all key usages from being set, set this value to an empty list. See also RFC 5280 Section 4.2.1.12.
 	ExtKeyUsage []string `json:"ext_key_usage,omitempty"`
@@ -80,7 +80,7 @@ type PkiWriteRoleRequest struct {
 	ExtKeyUsageOids []string `json:"ext_key_usage_oids,omitempty"`
 
 	// If set, certificates issued/signed against this role will have Vault leases attached to them. Defaults to \"false\". Certificates can be added to the CRL by \"vault revoke <lease_id>\" when certificates are associated with leases. It can also be done using the \"pki/revoke\" endpoint. However, when lease generation is disabled, invoking \"pki/revoke\" would be the only way to add the certificates to the CRL. When large number of certificates are generated with long lifetimes, it is recommended that lease generation be disabled, as large amount of leases adversely affect the startup time of Vault.
-	GenerateLease bool `json:"generate_lease,omitempty"`
+	GenerateLease *bool `json:"generate_lease,omitempty"`
 
 	// Reference to the issuer used to sign requests serviced by this role.
 	IssuerRef string `json:"issuer_ref,omitempty"`
@@ -101,7 +101,7 @@ type PkiWriteRoleRequest struct {
 	MaxTtl string `json:"max_ttl,omitempty"`
 
 	// If set, certificates issued/signed against this role will not be stored in the storage backend. This can improve performance when issuing large numbers of certificates. However, certificates issued in this way cannot be enumerated or revoked, so this option is recommended only for certificates that are non-sensitive, or extremely short-lived. This option implies a value of \"false\" for \"generate_lease\".
-	NoStore bool `json:"no_store,omitempty"`
+	NoStore *bool `json:"no_store,omitempty"`
 
 	// Set the not after field of the certificate with specified date value. The value format should be given in UTC format YYYY-MM-ddTHH:MM:SSZ.
 	NotAfter string `json:"not_after,omitempty"`
@@ -125,10 +125,10 @@ type PkiWriteRoleRequest struct {
 	Province []string `json:"province,omitempty"`
 
 	// If set to false, makes the 'common_name' field optional while generating a certificate.
-	RequireCn bool `json:"require_cn,omitempty"`
+	RequireCn *bool `json:"require_cn,omitempty"`
 
 	// If set, certificates are flagged for server auth use. Defaults to true. See also RFC 5280 Section 4.2.1.12.
-	ServerFlag bool `json:"server_flag,omitempty"`
+	ServerFlag *bool `json:"server_flag,omitempty"`
 
 	// The number of bits to use in the signature algorithm; accepts 256 for SHA-2-256, 384 for SHA-2-384, and 512 for SHA-2-512. Defaults to 0 to automatically detect based on key length (SHA-2-256 for RSA keys, and matching the curve size for NIST P-Curves).
 	SignatureBits int32 `json:"signature_bits,omitempty"`
@@ -140,11 +140,11 @@ type PkiWriteRoleRequest struct {
 	Ttl string `json:"ttl,omitempty"`
 
 	// If set, when used with a signing profile, the common name in the CSR will be used. This does *not* include any requested Subject Alternative Names; use use_csr_sans for that. Defaults to true.
-	UseCsrCommonName bool `json:"use_csr_common_name,omitempty"`
+	UseCsrCommonName *bool `json:"use_csr_common_name,omitempty"`
 
 	// If set, when used with a signing profile, the SANs in the CSR will be used. This does *not* include the Common Name (cn); use use_csr_common_name for that. Defaults to true.
-	UseCsrSans bool `json:"use_csr_sans,omitempty"`
+	UseCsrSans *bool `json:"use_csr_sans,omitempty"`
 
 	// Whether or not to use PSS signatures when using a RSA key-type issuer. Defaults to false.
-	UsePss bool `json:"use_pss,omitempty"`
+	UsePss *bool `json:"use_pss,omitempty"`
 }

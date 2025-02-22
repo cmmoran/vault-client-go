@@ -11,5 +11,5 @@ type UnsealRequest struct {
 	Key string `json:"key,omitempty"`
 
 	// Specifies if previously-provided unseal keys are discarded and the unseal process is reset.
-	Reset bool `json:"reset,omitempty"`
+	Reset *bool `json:"reset,omitempty"`
 }

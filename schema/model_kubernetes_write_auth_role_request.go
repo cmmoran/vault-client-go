@@ -49,7 +49,7 @@ type KubernetesWriteAuthRoleRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

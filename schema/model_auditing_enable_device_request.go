@@ -11,7 +11,7 @@ type AuditingEnableDeviceRequest struct {
 	Description string `json:"description,omitempty"`
 
 	// Mark the mount as a local mount, which is not replicated and is unaffected by replication.
-	Local bool `json:"local,omitempty"`
+	Local *bool `json:"local,omitempty"`
 
 	// Configuration options for the audit backend.
 	Options map[string]interface{} `json:"options,omitempty"`

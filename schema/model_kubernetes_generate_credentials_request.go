@@ -11,7 +11,7 @@ type KubernetesGenerateCredentialsRequest struct {
 	Audiences []string `json:"audiences,omitempty"`
 
 	// If true, generate a ClusterRoleBinding to grant permissions across the whole cluster instead of within a namespace. Requires the Vault role to have kubernetes_role_type set to ClusterRole.
-	ClusterRoleBinding bool `json:"cluster_role_binding,omitempty"`
+	ClusterRoleBinding *bool `json:"cluster_role_binding,omitempty"`
 
 	// The name of the Kubernetes namespace in which to generate the credentials
 	KubernetesNamespace string `json:"kubernetes_namespace"`

@@ -8,7 +8,7 @@ package schema
 // KvV2WriteMetadataRequest struct for KvV2WriteMetadataRequest
 type KvV2WriteMetadataRequest struct {
 	// If true the key will require the cas parameter to be set on all write requests. If false, the backend’s configuration will be used.
-	CasRequired bool `json:"cas_required,omitempty"`
+	CasRequired *bool `json:"cas_required,omitempty"`
 
 	// User-provided key-value pairs that are used to describe arbitrary and version-agnostic information about a secret.
 	CustomMetadata map[string]interface{} `json:"custom_metadata,omitempty"`

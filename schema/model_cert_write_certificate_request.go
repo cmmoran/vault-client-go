@@ -50,13 +50,13 @@ type CertWriteCertificateRequest struct {
 	OcspCaCertificates string `json:"ocsp_ca_certificates,omitempty"`
 
 	// Whether to attempt OCSP verification of certificates at login
-	OcspEnabled bool `json:"ocsp_enabled,omitempty"`
+	OcspEnabled *bool `json:"ocsp_enabled,omitempty"`
 
 	// If set to true, if an OCSP revocation cannot be made successfully, login will proceed rather than failing. If false, failing to get an OCSP status fails the request.
-	OcspFailOpen bool `json:"ocsp_fail_open,omitempty"`
+	OcspFailOpen *bool `json:"ocsp_fail_open,omitempty"`
 
 	// If set to true, rather than accepting the first successful OCSP response, query all servers and consider the certificate valid only if all servers agree.
-	OcspQueryAllServers bool `json:"ocsp_query_all_servers,omitempty"`
+	OcspQueryAllServers *bool `json:"ocsp_query_all_servers,omitempty"`
 
 	// A comma-separated list of OCSP server addresses. If unset, the OCSP server is determined from the AuthorityInformationAccess extension on the certificate being inspected.
 	OcspServersOverride []string `json:"ocsp_servers_override,omitempty"`
@@ -82,7 +82,7 @@ type CertWriteCertificateRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

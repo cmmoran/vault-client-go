@@ -14,7 +14,7 @@ type OktaConfigureRequest struct {
 	BaseUrl string `json:"base_url,omitempty"`
 
 	// When set true, requests by Okta for a MFA check will be bypassed. This also disallows certain status checks on the account, such as whether the password is expired.
-	BypassOktaMfa bool `json:"bypass_okta_mfa,omitempty"`
+	BypassOktaMfa *bool `json:"bypass_okta_mfa,omitempty"`
 
 	// Use \"token_max_ttl\" instead. If this and \"token_max_ttl\" are both specified, only \"token_max_ttl\" will be used.
 	// Deprecated
@@ -29,7 +29,7 @@ type OktaConfigureRequest struct {
 
 	// Use base_url instead.
 	// Deprecated
-	Production bool `json:"production,omitempty"`
+	Production *bool `json:"production,omitempty"`
 
 	// Use api_token instead.
 	// Deprecated
@@ -45,7 +45,7 @@ type OktaConfigureRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

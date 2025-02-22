@@ -23,7 +23,7 @@ type MfaCreateDuoMethodRequest struct {
 	SecretKey string `json:"secret_key,omitempty"`
 
 	// If true, the user is reminded to use the passcode upon MFA validation. This option does not enforce using the passcode. Defaults to false.
-	UsePasscode bool `json:"use_passcode,omitempty"`
+	UsePasscode *bool `json:"use_passcode,omitempty"`
 
 	// A template string for mapping Identity names to MFA method names. Values to subtitute should be placed in {{}}. For example, \"{{alias.name}}@example.com\". Currently-supported mappings: alias.name: The name returned by the mount configured via the mount_accessor parameter If blank, the Alias's name field will be used as-is.
 	UsernameFormat string `json:"username_format,omitempty"`

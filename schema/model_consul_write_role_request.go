@@ -21,7 +21,7 @@ type ConsulWriteRoleRequest struct {
 	Lease string `json:"lease,omitempty"`
 
 	// Indicates that the token should not be replicated globally and instead be local to the current datacenter. Available in Consul 1.4 and above.
-	Local bool `json:"local,omitempty"`
+	Local *bool `json:"local,omitempty"`
 
 	// Max TTL for the Consul token created from the role.
 	MaxTtl string `json:"max_ttl,omitempty"`

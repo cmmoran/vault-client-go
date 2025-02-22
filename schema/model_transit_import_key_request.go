@@ -8,10 +8,10 @@ package schema
 // TransitImportKeyRequest struct for TransitImportKeyRequest
 type TransitImportKeyRequest struct {
 	// Enables taking a backup of the named key in plaintext format. Once set, this cannot be disabled.
-	AllowPlaintextBackup bool `json:"allow_plaintext_backup,omitempty"`
+	AllowPlaintextBackup *bool `json:"allow_plaintext_backup,omitempty"`
 
 	// True if the imported key may be rotated within Vault; false otherwise.
-	AllowRotation bool `json:"allow_rotation,omitempty"`
+	AllowRotation *bool `json:"allow_rotation,omitempty"`
 
 	// Amount of time the key should live before being automatically rotated. A value of 0 (default) disables automatic rotation for the key.
 	AutoRotatePeriod string `json:"auto_rotate_period,omitempty"`
@@ -23,10 +23,10 @@ type TransitImportKeyRequest struct {
 	Context string `json:"context,omitempty"`
 
 	// Enables key derivation mode. This allows for per-transaction unique keys for encryption operations.
-	Derived bool `json:"derived,omitempty"`
+	Derived *bool `json:"derived,omitempty"`
 
 	// Enables keys to be exportable. This allows for all the valid keys in the key ring to be exported.
-	Exportable bool `json:"exportable,omitempty"`
+	Exportable *bool `json:"exportable,omitempty"`
 
 	// The hash function used as a random oracle in the OAEP wrapping of the user-generated, ephemeral AES key. Can be one of \"SHA1\", \"SHA224\", \"SHA256\" (default), \"SHA384\", or \"SHA512\"
 	HashFunction string `json:"hash_function,omitempty"`

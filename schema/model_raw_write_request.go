@@ -7,7 +7,7 @@ package schema
 
 // RawWriteRequest struct for RawWriteRequest
 type RawWriteRequest struct {
-	Compressed bool `json:"compressed,omitempty"`
+	Compressed *bool `json:"compressed,omitempty"`
 
 	CompressionType string `json:"compression_type,omitempty"`
 

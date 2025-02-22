@@ -8,7 +8,7 @@ package schema
 // PkiIssuersGenerateIntermediateRequest struct for PkiIssuersGenerateIntermediateRequest
 type PkiIssuersGenerateIntermediateRequest struct {
 	// Whether to add a Basic Constraints extension with CA: true. Only needed as a workaround in some compatibility scenarios with Active Directory Certificate Services.
-	AddBasicConstraints bool `json:"add_basic_constraints,omitempty"`
+	AddBasicConstraints *bool `json:"add_basic_constraints,omitempty"`
 
 	// The requested Subject Alternative Names, if any, in a comma-delimited list. May contain both DNS names and email addresses.
 	AltNames string `json:"alt_names,omitempty"`
@@ -20,7 +20,7 @@ type PkiIssuersGenerateIntermediateRequest struct {
 	Country []string `json:"country,omitempty"`
 
 	// If true, the Common Name will not be included in DNS or Email Subject Alternate Names. Defaults to false (CN is included).
-	ExcludeCnFromSans bool `json:"exclude_cn_from_sans,omitempty"`
+	ExcludeCnFromSans *bool `json:"exclude_cn_from_sans,omitempty"`
 
 	// Format for returned data. Can be \"pem\", \"der\", or \"pem_bundle\". If \"pem_bundle\", any private key and issuing cert will be appended to the certificate pem. If \"der\", the value will be base64 encoded. Defaults to \"pem\".
 	Format string `json:"format,omitempty"`

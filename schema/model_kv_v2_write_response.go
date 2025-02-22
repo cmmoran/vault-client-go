@@ -15,7 +15,7 @@ type KvV2WriteResponse struct {
 
 	DeletionTime string `json:"deletion_time,omitempty"`
 
-	Destroyed bool `json:"destroyed,omitempty"`
+	Destroyed *bool `json:"destroyed,omitempty"`
 
 	Version int64 `json:"version,omitempty"`
 }

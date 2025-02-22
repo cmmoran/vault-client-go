@@ -22,7 +22,7 @@ type LeasesReadLeaseResponse struct {
 	LastRenewal time.Time `json:"last_renewal,omitempty"`
 
 	// True if the lease is able to be renewed
-	Renewable bool `json:"renewable,omitempty"`
+	Renewable *bool `json:"renewable,omitempty"`
 
 	// Time to Live set for the lease, returns 0 if unset
 	Ttl int32 `json:"ttl,omitempty"`

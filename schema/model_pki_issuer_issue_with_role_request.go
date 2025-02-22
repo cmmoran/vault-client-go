@@ -14,7 +14,7 @@ type PkiIssuerIssueWithRoleRequest struct {
 	CommonName string `json:"common_name,omitempty"`
 
 	// If true, the Common Name will not be included in DNS or Email Subject Alternate Names. Defaults to false (CN is included).
-	ExcludeCnFromSans bool `json:"exclude_cn_from_sans,omitempty"`
+	ExcludeCnFromSans *bool `json:"exclude_cn_from_sans,omitempty"`
 
 	// Format for returned data. Can be \"pem\", \"der\", or \"pem_bundle\". If \"pem_bundle\", any private key and issuing cert will be appended to the certificate pem. If \"der\", the value will be base64 encoded. Defaults to \"pem\".
 	Format string `json:"format,omitempty"`
@@ -32,7 +32,7 @@ type PkiIssuerIssueWithRoleRequest struct {
 	PrivateKeyFormat string `json:"private_key_format,omitempty"`
 
 	// Whether or not to remove self-signed CA certificates in the output of the ca_chain field.
-	RemoveRootsFromChain bool `json:"remove_roots_from_chain,omitempty"`
+	RemoveRootsFromChain *bool `json:"remove_roots_from_chain,omitempty"`
 
 	// The Subject's requested serial number, if any. See RFC 4519 Section 2.31 'serialNumber' for a description of this field. If you want more than one, specify alternative names in the alt_names map using OID 2.5.4.5. This has no impact on the final certificate's Serial Number field.
 	SerialNumber string `json:"serial_number,omitempty"`

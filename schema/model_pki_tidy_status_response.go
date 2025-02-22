@@ -64,26 +64,26 @@ type PkiTidyStatusResponse struct {
 	State string `json:"state,omitempty"`
 
 	// Tidy Unused Acme Accounts, and Orders
-	TidyAcme bool `json:"tidy_acme,omitempty"`
+	TidyAcme *bool `json:"tidy_acme,omitempty"`
 
 	// Tidy certificate store
-	TidyCertStore bool `json:"tidy_cert_store,omitempty"`
+	TidyCertStore *bool `json:"tidy_cert_store,omitempty"`
 
 	// Tidy the cross-cluster revoked certificate store
-	TidyCrossClusterRevokedCerts bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
+	TidyCrossClusterRevokedCerts *bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
 
 	// Tidy expired issuers
-	TidyExpiredIssuers bool `json:"tidy_expired_issuers,omitempty"`
+	TidyExpiredIssuers *bool `json:"tidy_expired_issuers,omitempty"`
 
-	TidyMoveLegacyCaBundle bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
+	TidyMoveLegacyCaBundle *bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
 
-	TidyRevocationQueue bool `json:"tidy_revocation_queue,omitempty"`
+	TidyRevocationQueue *bool `json:"tidy_revocation_queue,omitempty"`
 
 	// Tidy revoked certificate issuer associations
-	TidyRevokedCertIssuerAssociations bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
+	TidyRevokedCertIssuerAssociations *bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
 
 	// Tidy revoked certificates
-	TidyRevokedCerts bool `json:"tidy_revoked_certs,omitempty"`
+	TidyRevokedCerts *bool `json:"tidy_revoked_certs,omitempty"`
 
 	// Time the operation finished
 	TimeFinished string `json:"time_finished,omitempty"`

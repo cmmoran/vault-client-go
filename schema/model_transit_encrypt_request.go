@@ -17,7 +17,7 @@ type TransitEncryptRequest struct {
 	Context string `json:"context,omitempty"`
 
 	// This parameter will only be used when a key is expected to be created. Whether to support convergent encryption. This is only supported when using a key with key derivation enabled and will require all requests to carry both a context and 96-bit (12-byte) nonce. The given nonce will be used in place of a randomly generated nonce. As a result, when the same context and nonce are supplied, the same ciphertext is generated. It is *very important* when using this mode that you ensure that all nonces are unique for a given context. Failing to do so will severely impact the ciphertext's security.
-	ConvergentEncryption bool `json:"convergent_encryption,omitempty"`
+	ConvergentEncryption *bool `json:"convergent_encryption,omitempty"`
 
 	// The version of the key to use for encryption. Must be 0 (for latest) or a value greater than or equal to the min_encryption_version configured on the key.
 	KeyVersion int32 `json:"key_version,omitempty"`

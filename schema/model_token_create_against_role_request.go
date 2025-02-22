@@ -27,10 +27,10 @@ type TokenCreateAgainstRoleRequest struct {
 	Meta map[string]interface{} `json:"meta,omitempty"`
 
 	// Do not include default policy for this token
-	NoDefaultPolicy bool `json:"no_default_policy,omitempty"`
+	NoDefaultPolicy *bool `json:"no_default_policy,omitempty"`
 
 	// Create the token with no parent
-	NoParent bool `json:"no_parent,omitempty"`
+	NoParent *bool `json:"no_parent,omitempty"`
 
 	// Max number of uses for this token
 	NumUses int32 `json:"num_uses,omitempty"`
@@ -42,7 +42,7 @@ type TokenCreateAgainstRoleRequest struct {
 	Policies []string `json:"policies,omitempty"`
 
 	// Allow token to be renewed past its initial TTL up to system/mount maximum TTL
-	Renewable bool `json:"renewable,omitempty"`
+	Renewable *bool `json:"renewable,omitempty"`
 
 	// Time to live for this token
 	Ttl string `json:"ttl,omitempty"`

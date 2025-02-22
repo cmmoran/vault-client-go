@@ -23,5 +23,5 @@ type DatabaseConfigureConnectionRequest struct {
 	RootRotationStatements []string `json:"root_rotation_statements,omitempty"`
 
 	// If true, the connection details are verified by actually connecting to the database. Defaults to true.
-	VerifyConnection bool `json:"verify_connection,omitempty"`
+	VerifyConnection *bool `json:"verify_connection,omitempty"`
 }

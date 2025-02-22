@@ -8,7 +8,7 @@ package schema
 // LdapConfigureRequest struct for LdapConfigureRequest
 type LdapConfigureRequest struct {
 	// Use anonymous binds when performing LDAP group searches (if true the initial credentials will still be used for the initial connection test).
-	AnonymousGroupSearch bool `json:"anonymous_group_search,omitempty"`
+	AnonymousGroupSearch *bool `json:"anonymous_group_search,omitempty"`
 
 	// LDAP DN for searching for the user DN (optional)
 	Binddn string `json:"binddn,omitempty"`
@@ -17,7 +17,7 @@ type LdapConfigureRequest struct {
 	Bindpass string `json:"bindpass,omitempty"`
 
 	// If true, case sensitivity will be used when comparing usernames and groups for matching policies.
-	CaseSensitiveNames bool `json:"case_sensitive_names,omitempty"`
+	CaseSensitiveNames *bool `json:"case_sensitive_names,omitempty"`
 
 	// CA certificate to use when verifying LDAP server certificate, must be x509 PEM encoded (optional)
 	Certificate string `json:"certificate,omitempty"`
@@ -32,13 +32,13 @@ type LdapConfigureRequest struct {
 	ConnectionTimeout string `json:"connection_timeout,omitempty"`
 
 	// Denies an unauthenticated LDAP bind request if the user's password is empty; defaults to true
-	DenyNullBind bool `json:"deny_null_bind,omitempty"`
+	DenyNullBind *bool `json:"deny_null_bind,omitempty"`
 
 	// When aliases should be dereferenced on search operations. Accepted values are 'never', 'finding', 'searching', 'always'. Defaults to 'never'.
 	DereferenceAliases string `json:"dereference_aliases,omitempty"`
 
 	// Use anonymous bind to discover the bind DN of a user (optional)
-	Discoverdn bool `json:"discoverdn,omitempty"`
+	Discoverdn *bool `json:"discoverdn,omitempty"`
 
 	// LDAP attribute to follow on objects returned by <groupfilter> in order to enumerate user group membership. Examples: \"cn\" or \"memberOf\", etc. Default: cn
 	Groupattr string `json:"groupattr,omitempty"`
@@ -50,7 +50,7 @@ type LdapConfigureRequest struct {
 	Groupfilter string `json:"groupfilter,omitempty"`
 
 	// Skip LDAP server SSL Certificate verification - VERY insecure (optional)
-	InsecureTls bool `json:"insecure_tls,omitempty"`
+	InsecureTls *bool `json:"insecure_tls,omitempty"`
 
 	// The desired length of passwords that Vault generates.
 	// Deprecated
@@ -72,7 +72,7 @@ type LdapConfigureRequest struct {
 	Schema string `json:"schema,omitempty"`
 
 	// Issue a StartTLS command after establishing unencrypted connection (optional)
-	Starttls bool `json:"starttls,omitempty"`
+	Starttls *bool `json:"starttls,omitempty"`
 
 	// Maximum TLS version to use. Accepted values are 'tls10', 'tls11', 'tls12' or 'tls13'. Defaults to 'tls12'
 	TlsMaxVersion string `json:"tls_max_version,omitempty"`
@@ -90,10 +90,10 @@ type LdapConfigureRequest struct {
 	Url string `json:"url,omitempty"`
 
 	// In Vault 1.1.1 a fix for handling group CN values of different cases unfortunately introduced a regression that could cause previously defined groups to not be found due to a change in the resulting name. If set true, the pre-1.1.1 behavior for matching group CNs will be used. This is only needed in some upgrade scenarios for backwards compatibility. It is enabled by default if the config is upgraded but disabled by default on new configurations.
-	UsePre111GroupCnBehavior bool `json:"use_pre111_group_cn_behavior,omitempty"`
+	UsePre111GroupCnBehavior *bool `json:"use_pre111_group_cn_behavior,omitempty"`
 
 	// If true, use the Active Directory tokenGroups constructed attribute of the user to find the group memberships. This will find all security groups including nested ones.
-	UseTokenGroups bool `json:"use_token_groups,omitempty"`
+	UseTokenGroups *bool `json:"use_token_groups,omitempty"`
 
 	// Attribute used for users (default: cn)
 	Userattr string `json:"userattr,omitempty"`
@@ -105,5 +105,5 @@ type LdapConfigureRequest struct {
 	Userfilter string `json:"userfilter,omitempty"`
 
 	// If true, sets the alias name to the username
-	UsernameAsAlias bool `json:"username_as_alias,omitempty"`
+	UsernameAsAlias *bool `json:"username_as_alias,omitempty"`
 }

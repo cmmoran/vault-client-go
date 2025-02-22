@@ -14,5 +14,5 @@ type PkiRootSignSelfIssuedRequest struct {
 	IssuerRef string `json:"issuer_ref,omitempty"`
 
 	// If true, require the public key algorithm of the signer to match that of the self issued certificate.
-	RequireMatchingCertificateAlgorithms bool `json:"require_matching_certificate_algorithms,omitempty"`
+	RequireMatchingCertificateAlgorithms *bool `json:"require_matching_certificate_algorithms,omitempty"`
 }

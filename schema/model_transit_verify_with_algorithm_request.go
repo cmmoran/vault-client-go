@@ -29,7 +29,7 @@ type TransitVerifyWithAlgorithmRequest struct {
 	MarshalingAlgorithm string `json:"marshaling_algorithm,omitempty"`
 
 	// Set to 'true' when the input is already hashed. If the key type is 'rsa-2048', 'rsa-3072' or 'rsa-4096', then the algorithm used to hash the input should be indicated by the 'algorithm' parameter.
-	Prehashed bool `json:"prehashed,omitempty"`
+	Prehashed *bool `json:"prehashed,omitempty"`
 
 	// The salt length used to sign. Currently only applies to the RSA PSS signature scheme. Options are 'auto' (the default used by Golang, causing the salt to be as large as possible when signing), 'hash' (causes the salt length to equal the length of the hash used in the signature), or an integer between the minimum and the maximum permissible salt lengths for the given RSA key size. Defaults to 'auto'.
 	SaltLength string `json:"salt_length,omitempty"`

@@ -8,7 +8,7 @@ package schema
 // SshConfigureCaRequest struct for SshConfigureCaRequest
 type SshConfigureCaRequest struct {
 	// Generate SSH key pair internally rather than use the private_key and public_key fields.
-	GenerateSigningKey bool `json:"generate_signing_key,omitempty"`
+	GenerateSigningKey *bool `json:"generate_signing_key,omitempty"`
 
 	// Specifies the desired key bits when generating variable-length keys (such as when key_type=\"ssh-rsa\") or which NIST P-curve to use when key_type=\"ec\" (256, 384, or 521).
 	KeyBits int32 `json:"key_bits,omitempty"`

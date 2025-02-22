@@ -7,5 +7,5 @@ package schema
 
 // AuditingEnableRequestHeaderRequest struct for AuditingEnableRequestHeaderRequest
 type AuditingEnableRequestHeaderRequest struct {
-	Hmac bool `json:"hmac,omitempty"`
+	Hmac *bool `json:"hmac,omitempty"`
 }

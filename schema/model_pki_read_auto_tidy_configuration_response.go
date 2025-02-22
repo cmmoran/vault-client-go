@@ -11,7 +11,7 @@ type PkiReadAutoTidyConfigurationResponse struct {
 	AcmeAccountSafetyBuffer int32 `json:"acme_account_safety_buffer,omitempty"`
 
 	// Specifies whether automatic tidy is enabled or not
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 
 	// Specifies the duration between automatic tidy operation
 	IntervalDuration int32 `json:"interval_duration,omitempty"`
@@ -19,12 +19,12 @@ type PkiReadAutoTidyConfigurationResponse struct {
 	// Issuer safety buffer
 	IssuerSafetyBuffer int32 `json:"issuer_safety_buffer,omitempty"`
 
-	MaintainStoredCertificateCounts bool `json:"maintain_stored_certificate_counts,omitempty"`
+	MaintainStoredCertificateCounts *bool `json:"maintain_stored_certificate_counts,omitempty"`
 
 	// Duration to pause between tidying certificates
 	PauseDuration string `json:"pause_duration,omitempty"`
 
-	PublishStoredCertificateCountMetrics bool `json:"publish_stored_certificate_count_metrics,omitempty"`
+	PublishStoredCertificateCountMetrics *bool `json:"publish_stored_certificate_count_metrics,omitempty"`
 
 	RevocationQueueSafetyBuffer int32 `json:"revocation_queue_safety_buffer,omitempty"`
 
@@ -32,23 +32,23 @@ type PkiReadAutoTidyConfigurationResponse struct {
 	SafetyBuffer int32 `json:"safety_buffer,omitempty"`
 
 	// Tidy Unused Acme Accounts, and Orders
-	TidyAcme bool `json:"tidy_acme,omitempty"`
+	TidyAcme *bool `json:"tidy_acme,omitempty"`
 
 	// Specifies whether to tidy up the certificate store
-	TidyCertStore bool `json:"tidy_cert_store,omitempty"`
+	TidyCertStore *bool `json:"tidy_cert_store,omitempty"`
 
-	TidyCrossClusterRevokedCerts bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
+	TidyCrossClusterRevokedCerts *bool `json:"tidy_cross_cluster_revoked_certs,omitempty"`
 
 	// Specifies whether tidy expired issuers
-	TidyExpiredIssuers bool `json:"tidy_expired_issuers,omitempty"`
+	TidyExpiredIssuers *bool `json:"tidy_expired_issuers,omitempty"`
 
-	TidyMoveLegacyCaBundle bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
+	TidyMoveLegacyCaBundle *bool `json:"tidy_move_legacy_ca_bundle,omitempty"`
 
-	TidyRevocationQueue bool `json:"tidy_revocation_queue,omitempty"`
+	TidyRevocationQueue *bool `json:"tidy_revocation_queue,omitempty"`
 
 	// Specifies whether to associate revoked certificates with their corresponding issuers
-	TidyRevokedCertIssuerAssociations bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
+	TidyRevokedCertIssuerAssociations *bool `json:"tidy_revoked_cert_issuer_associations,omitempty"`
 
 	// Specifies whether to remove all invalid and expired certificates from storage
-	TidyRevokedCerts bool `json:"tidy_revoked_certs,omitempty"`
+	TidyRevokedCerts *bool `json:"tidy_revoked_certs,omitempty"`
 }

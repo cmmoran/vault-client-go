@@ -8,7 +8,7 @@ package schema
 // AwsWriteAuthRoleRequest struct for AwsWriteAuthRoleRequest
 type AwsWriteAuthRoleRequest struct {
 	// If set, allows migration of the underlying instance where the client resides. This keys off of pendingTime in the metadata document, so essentially, this disables the client nonce check whenever the instance is migrated to a new host and pendingTime is newer than the previously-remembered time. Use with caution. This is only checked when auth_type is ec2.
-	AllowInstanceMigration bool `json:"allow_instance_migration,omitempty"`
+	AllowInstanceMigration *bool `json:"allow_instance_migration,omitempty"`
 
 	// The auth_type permitted to authenticate to this role. Must be one of iam or ec2 and cannot be changed after role creation.
 	AuthType string `json:"auth_type,omitempty"`
@@ -41,7 +41,7 @@ type AwsWriteAuthRoleRequest struct {
 	BoundVpcId []string `json:"bound_vpc_id,omitempty"`
 
 	// If set, only allows a single token to be granted per instance ID. In order to perform a fresh login, the entry in the access list for the instance ID needs to be cleared using 'auth/aws-ec2/identity-accesslist/<instance_id>' endpoint. This is only applicable when auth_type is ec2.
-	DisallowReauthentication bool `json:"disallow_reauthentication,omitempty"`
+	DisallowReauthentication *bool `json:"disallow_reauthentication,omitempty"`
 
 	// When auth_type is iam and inferred_entity_type is set, the region to assume the inferred entity exists in.
 	InferredAwsRegion string `json:"inferred_aws_region,omitempty"`
@@ -62,7 +62,7 @@ type AwsWriteAuthRoleRequest struct {
 	Policies []string `json:"policies,omitempty"`
 
 	// If set, resolve all AWS IAM ARNs into AWS's internal unique IDs. When an IAM entity (e.g., user, role, or instance profile) is deleted, then all references to it within the role will be invalidated, which prevents a new IAM entity from being created with the same name and matching the role's IAM binds. Once set, this cannot be unset.
-	ResolveAwsUniqueIds bool `json:"resolve_aws_unique_ids,omitempty"`
+	ResolveAwsUniqueIds *bool `json:"resolve_aws_unique_ids,omitempty"`
 
 	// If set, enables the role tags for this role. The value set for this field should be the 'key' of the tag on the EC2 instance. The 'value' of the tag should be generated using 'role/<role>/tag' endpoint. Defaults to an empty string, meaning that role tags are disabled. This is only allowed if auth_type is ec2.
 	RoleTag string `json:"role_tag,omitempty"`
@@ -77,7 +77,7 @@ type AwsWriteAuthRoleRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

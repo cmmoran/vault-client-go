@@ -17,9 +17,9 @@ type UnsealResponse struct {
 
 	HcpLinkStatus string `json:"hcp_link_status,omitempty"`
 
-	Initialized bool `json:"initialized,omitempty"`
+	Initialized *bool `json:"initialized,omitempty"`
 
-	Migration bool `json:"migration,omitempty"`
+	Migration *bool `json:"migration,omitempty"`
 
 	N int32 `json:"n,omitempty"`
 
@@ -27,9 +27,9 @@ type UnsealResponse struct {
 
 	Progress int32 `json:"progress,omitempty"`
 
-	RecoverySeal bool `json:"recovery_seal,omitempty"`
+	RecoverySeal *bool `json:"recovery_seal,omitempty"`
 
-	Sealed bool `json:"sealed,omitempty"`
+	Sealed *bool `json:"sealed,omitempty"`
 
 	StorageType string `json:"storage_type,omitempty"`
 

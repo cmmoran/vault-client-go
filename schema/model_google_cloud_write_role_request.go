@@ -8,10 +8,10 @@ package schema
 // GoogleCloudWriteRoleRequest struct for GoogleCloudWriteRoleRequest
 type GoogleCloudWriteRoleRequest struct {
 	// If true, will add group aliases to auth tokens generated under this role. This will add the full list of ancestors (projects, folders, organizations) for the given entity's project. Requires IAM permission `resourcemanager.projects.get` on this project.
-	AddGroupAliases bool `json:"add_group_aliases,omitempty"`
+	AddGroupAliases *bool `json:"add_group_aliases,omitempty"`
 
 	// 'iam' roles only. If false, Vault will not not allow GCE instances to login in against this role
-	AllowGceInference bool `json:"allow_gce_inference,omitempty"`
+	AllowGceInference *bool `json:"allow_gce_inference,omitempty"`
 
 	// Deprecated: use \"bound_instance_groups\" instead.
 	BoundInstanceGroup string `json:"bound_instance_group,omitempty"`
@@ -71,7 +71,7 @@ type GoogleCloudWriteRoleRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

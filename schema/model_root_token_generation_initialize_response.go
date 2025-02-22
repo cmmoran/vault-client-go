@@ -7,7 +7,7 @@ package schema
 
 // RootTokenGenerationInitializeResponse struct for RootTokenGenerationInitializeResponse
 type RootTokenGenerationInitializeResponse struct {
-	Complete bool `json:"complete,omitempty"`
+	Complete *bool `json:"complete,omitempty"`
 
 	EncodedRootToken string `json:"encoded_root_token,omitempty"`
 
@@ -25,5 +25,5 @@ type RootTokenGenerationInitializeResponse struct {
 
 	Required int32 `json:"required,omitempty"`
 
-	Started bool `json:"started,omitempty"`
+	Started *bool `json:"started,omitempty"`
 }

@@ -8,14 +8,14 @@ package schema
 // AppRoleWriteRoleRequest struct for AppRoleWriteRoleRequest
 type AppRoleWriteRoleRequest struct {
 	// Impose secret_id to be presented when logging in using this role. Defaults to 'true'.
-	BindSecretId bool `json:"bind_secret_id,omitempty"`
+	BindSecretId *bool `json:"bind_secret_id,omitempty"`
 
 	// Use \"secret_id_bound_cidrs\" instead.
 	// Deprecated
 	BoundCidrList []string `json:"bound_cidr_list,omitempty"`
 
 	// If set, the secret IDs generated using this role will be cluster local. This can only be set during role creation and once set, it can't be reset later.
-	LocalSecretIds bool `json:"local_secret_ids,omitempty"`
+	LocalSecretIds *bool `json:"local_secret_ids,omitempty"`
 
 	// Use \"token_period\" instead. If this and \"token_period\" are both specified, only \"token_period\" will be used.
 	// Deprecated
@@ -47,7 +47,7 @@ type AppRoleWriteRoleRequest struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

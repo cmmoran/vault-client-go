@@ -14,5 +14,5 @@ type CorsConfigureRequest struct {
 	AllowedOrigins []string `json:"allowed_origins,omitempty"`
 
 	// Enables or disables CORS headers on requests.
-	Enable bool `json:"enable,omitempty"`
+	Enable *bool `json:"enable,omitempty"`
 }

@@ -48,7 +48,7 @@ type PkiRevokeIssuerResponse struct {
 	RevocationTimeRfc3339 time.Time `json:"revocation_time_rfc3339,omitempty"`
 
 	// Whether the issuer was revoked
-	Revoked bool `json:"revoked,omitempty"`
+	Revoked *bool `json:"revoked,omitempty"`
 
 	// Allowed usage
 	Usage string `json:"usage,omitempty"`

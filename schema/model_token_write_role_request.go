@@ -31,7 +31,7 @@ type TokenWriteRoleRequest struct {
 	ExplicitMaxTtl string `json:"explicit_max_ttl,omitempty"`
 
 	// If true, tokens created via this role will be orphan tokens (have no parent)
-	Orphan bool `json:"orphan,omitempty"`
+	Orphan *bool `json:"orphan,omitempty"`
 
 	// If set, tokens created via this role will contain the given suffix as a part of their path. This can be used to assist use of the 'revoke-prefix' endpoint later on. The given suffix must match the regular expression.\\w[\\w-.]+\\w
 	PathSuffix string `json:"path_suffix,omitempty"`
@@ -41,7 +41,7 @@ type TokenWriteRoleRequest struct {
 	Period string `json:"period,omitempty"`
 
 	// Tokens created via this role will be renewable or not according to this value. Defaults to \"true\".
-	Renewable bool `json:"renewable,omitempty"`
+	Renewable *bool `json:"renewable,omitempty"`
 
 	// Comma separated string or JSON list of CIDR blocks. If set, specifies the blocks of IP addresses which are allowed to use the generated token.
 	TokenBoundCidrs []string `json:"token_bound_cidrs,omitempty"`
@@ -50,7 +50,7 @@ type TokenWriteRoleRequest struct {
 	TokenExplicitMaxTtl string `json:"token_explicit_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

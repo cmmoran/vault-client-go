@@ -23,5 +23,5 @@ type RabbitMqConfigureConnectionRequest struct {
 	UsernameTemplate string `json:"username_template,omitempty"`
 
 	// If set, connection_uri is verified by actually connecting to the RabbitMQ management API
-	VerifyConnection bool `json:"verify_connection,omitempty"`
+	VerifyConnection *bool `json:"verify_connection,omitempty"`
 }

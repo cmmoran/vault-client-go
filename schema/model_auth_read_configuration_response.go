@@ -15,9 +15,9 @@ type AuthReadConfigurationResponse struct {
 
 	Description string `json:"description,omitempty"`
 
-	ExternalEntropyAccess bool `json:"external_entropy_access,omitempty"`
+	ExternalEntropyAccess *bool `json:"external_entropy_access,omitempty"`
 
-	Local bool `json:"local,omitempty"`
+	Local *bool `json:"local,omitempty"`
 
 	Options map[string]interface{} `json:"options,omitempty"`
 
@@ -27,7 +27,7 @@ type AuthReadConfigurationResponse struct {
 
 	RunningSha256 string `json:"running_sha256,omitempty"`
 
-	SealWrap bool `json:"seal_wrap,omitempty"`
+	SealWrap *bool `json:"seal_wrap,omitempty"`
 
 	Type string `json:"type,omitempty"`
 

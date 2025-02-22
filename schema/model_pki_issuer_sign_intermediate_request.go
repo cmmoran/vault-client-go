@@ -20,7 +20,7 @@ type PkiIssuerSignIntermediateRequest struct {
 	Csr string `json:"csr,omitempty"`
 
 	// If true, the Common Name will not be included in DNS or Email Subject Alternate Names. Defaults to false (CN is included).
-	ExcludeCnFromSans bool `json:"exclude_cn_from_sans,omitempty"`
+	ExcludeCnFromSans *bool `json:"exclude_cn_from_sans,omitempty"`
 
 	// Format for returned data. Can be \"pem\", \"der\", or \"pem_bundle\". If \"pem_bundle\", any private key and issuing cert will be appended to the certificate pem. If \"der\", the value will be base64 encoded. Defaults to \"pem\".
 	Format string `json:"format,omitempty"`
@@ -83,8 +83,8 @@ type PkiIssuerSignIntermediateRequest struct {
 	UriSans []string `json:"uri_sans,omitempty"`
 
 	// If true, then: 1) Subject information, including names and alternate names, will be preserved from the CSR rather than using values provided in the other parameters to this path; 2) Any key usages requested in the CSR will be added to the basic set of key usages used for CA certs signed by this path; for instance, the non-repudiation flag; 3) Extensions requested in the CSR will be copied into the issued certificate.
-	UseCsrValues bool `json:"use_csr_values,omitempty"`
+	UseCsrValues *bool `json:"use_csr_values,omitempty"`
 
 	// Whether or not to use PSS signatures when using a RSA key-type issuer. Defaults to false.
-	UsePss bool `json:"use_pss,omitempty"`
+	UsePss *bool `json:"use_pss,omitempty"`
 }

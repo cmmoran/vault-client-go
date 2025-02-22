@@ -8,10 +8,10 @@ package schema
 // AppRoleReadRoleResponse struct for AppRoleReadRoleResponse
 type AppRoleReadRoleResponse struct {
 	// Impose secret ID to be presented when logging in using this role.
-	BindSecretId bool `json:"bind_secret_id,omitempty"`
+	BindSecretId *bool `json:"bind_secret_id,omitempty"`
 
 	// If true, the secret identifiers generated using this role will be cluster local. This can only be set during role creation and once set, it can't be reset later
-	LocalSecretIds bool `json:"local_secret_ids,omitempty"`
+	LocalSecretIds *bool `json:"local_secret_ids,omitempty"`
 
 	// Use \"token_period\" instead. If this and \"token_period\" are both specified, only \"token_period\" will be used.
 	// Deprecated
@@ -28,7 +28,7 @@ type AppRoleReadRoleResponse struct {
 	SecretIdNumUses int32 `json:"secret_id_num_uses,omitempty"`
 
 	// Duration in seconds after which the issued secret ID expires.
-	SecretIdTtl string `json:"secret_id_ttl,omitempty"`
+	SecretIdTtl int32 `json:"secret_id_ttl,omitempty"`
 
 	// Comma separated string or JSON list of CIDR blocks. If set, specifies the blocks of IP addresses which are allowed to use the generated token.
 	TokenBoundCidrs []string `json:"token_bound_cidrs,omitempty"`
@@ -40,7 +40,7 @@ type AppRoleReadRoleResponse struct {
 	TokenMaxTtl string `json:"token_max_ttl,omitempty"`
 
 	// If true, the 'default' policy will not automatically be added to generated tokens
-	TokenNoDefaultPolicy bool `json:"token_no_default_policy,omitempty"`
+	TokenNoDefaultPolicy *bool `json:"token_no_default_policy,omitempty"`
 
 	// The maximum number of times a token may be used, a value of zero means unlimited
 	TokenNumUses int32 `json:"token_num_uses,omitempty"`

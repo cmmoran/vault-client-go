@@ -35,5 +35,5 @@ type AwsConfigureClientRequest struct {
 	StsRegion string `json:"sts_region,omitempty"`
 
 	// Uses the STS region from client requests for making AWS STS API calls.
-	UseStsRegionFromClient bool `json:"use_sts_region_from_client,omitempty"`
+	UseStsRegionFromClient *bool `json:"use_sts_region_from_client,omitempty"`
 }

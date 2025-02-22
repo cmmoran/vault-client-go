@@ -7,9 +7,9 @@ package schema
 
 // RekeyAttemptUpdateResponse struct for RekeyAttemptUpdateResponse
 type RekeyAttemptUpdateResponse struct {
-	Backup bool `json:"backup,omitempty"`
+	Backup *bool `json:"backup,omitempty"`
 
-	Complete bool `json:"complete,omitempty"`
+	Complete *bool `json:"complete,omitempty"`
 
 	Keys []string `json:"keys,omitempty"`
 
@@ -31,5 +31,5 @@ type RekeyAttemptUpdateResponse struct {
 
 	VerificationNonce string `json:"verification_nonce,omitempty"`
 
-	VerificationRequired bool `json:"verification_required,omitempty"`
+	VerificationRequired *bool `json:"verification_required,omitempty"`
 }

@@ -11,5 +11,5 @@ type LeasesRevokeLeaseRequest struct {
 	LeaseId string `json:"lease_id,omitempty"`
 
 	// Whether or not to perform the revocation synchronously
-	Sync bool `json:"sync,omitempty"`
+	Sync *bool `json:"sync,omitempty"`
 }

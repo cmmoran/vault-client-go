@@ -8,7 +8,7 @@ package schema
 // PkiCrossSignIntermediateRequest struct for PkiCrossSignIntermediateRequest
 type PkiCrossSignIntermediateRequest struct {
 	// Whether to add a Basic Constraints extension with CA: true. Only needed as a workaround in some compatibility scenarios with Active Directory Certificate Services.
-	AddBasicConstraints bool `json:"add_basic_constraints,omitempty"`
+	AddBasicConstraints *bool `json:"add_basic_constraints,omitempty"`
 
 	// The requested Subject Alternative Names, if any, in a comma-delimited list. May contain both DNS names and email addresses.
 	AltNames string `json:"alt_names,omitempty"`
@@ -20,7 +20,7 @@ type PkiCrossSignIntermediateRequest struct {
 	Country []string `json:"country,omitempty"`
 
 	// If true, the Common Name will not be included in DNS or Email Subject Alternate Names. Defaults to false (CN is included).
-	ExcludeCnFromSans bool `json:"exclude_cn_from_sans,omitempty"`
+	ExcludeCnFromSans *bool `json:"exclude_cn_from_sans,omitempty"`
 
 	// Must be \"internal\", \"exported\" or \"kms\". If set to \"exported\", the generated private key will be returned. This is your *only* chance to retrieve the private key!
 	Exported string `json:"exported,omitempty"`

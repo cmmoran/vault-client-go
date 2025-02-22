@@ -9,10 +9,10 @@ package schema
 type KubernetesConfigureAuthRequest struct {
 	// Disable JWT issuer validation (Deprecated, will be removed in a future release)
 	// Deprecated
-	DisableIssValidation bool `json:"disable_iss_validation,omitempty"`
+	DisableIssValidation *bool `json:"disable_iss_validation,omitempty"`
 
 	// Disable defaulting to the local CA cert and service account JWT when running in a Kubernetes pod
-	DisableLocalCaJwt bool `json:"disable_local_ca_jwt,omitempty"`
+	DisableLocalCaJwt *bool `json:"disable_local_ca_jwt,omitempty"`
 
 	// Optional JWT issuer. If no issuer is specified, then this plugin will use kubernetes.io/serviceaccount as the default issuer. (Deprecated, will be removed in a future release)
 	// Deprecated

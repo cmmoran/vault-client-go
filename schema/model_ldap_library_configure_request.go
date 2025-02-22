@@ -8,7 +8,7 @@ package schema
 // LdapLibraryConfigureRequest struct for LdapLibraryConfigureRequest
 type LdapLibraryConfigureRequest struct {
 	// Disable the default behavior of requiring that check-ins are performed by the entity that checked them out.
-	DisableCheckInEnforcement bool `json:"disable_check_in_enforcement,omitempty"`
+	DisableCheckInEnforcement *bool `json:"disable_check_in_enforcement,omitempty"`
 
 	// In seconds, the max amount of time a check-out's renewals should last. Defaults to 24 hours.
 	MaxTtl string `json:"max_ttl,omitempty"`

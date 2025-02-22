@@ -19,9 +19,9 @@ type AuthReadTuningInformationResponse struct {
 
 	Description string `json:"description,omitempty"`
 
-	ExternalEntropyAccess bool `json:"external_entropy_access,omitempty"`
+	ExternalEntropyAccess *bool `json:"external_entropy_access,omitempty"`
 
-	ForceNoCache bool `json:"force_no_cache,omitempty"`
+	ForceNoCache *bool `json:"force_no_cache,omitempty"`
 
 	ListingVisibility string `json:"listing_visibility,omitempty"`
 
@@ -37,7 +37,7 @@ type AuthReadTuningInformationResponse struct {
 
 	UserLockoutCounterResetDuration int64 `json:"user_lockout_counter_reset_duration,omitempty"`
 
-	UserLockoutDisable bool `json:"user_lockout_disable,omitempty"`
+	UserLockoutDisable *bool `json:"user_lockout_disable,omitempty"`
 
 	UserLockoutDuration int64 `json:"user_lockout_duration,omitempty"`
 

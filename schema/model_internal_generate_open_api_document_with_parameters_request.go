@@ -11,5 +11,5 @@ type InternalGenerateOpenApiDocumentWithParametersRequest struct {
 	Context string `json:"context,omitempty"`
 
 	// Use generic mount paths
-	GenericMountPaths bool `json:"generic_mount_paths,omitempty"`
+	GenericMountPaths *bool `json:"generic_mount_paths,omitempty"`
 }

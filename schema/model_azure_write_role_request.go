@@ -20,10 +20,10 @@ type AzureWriteRoleRequest struct {
 	MaxTtl string `json:"max_ttl,omitempty"`
 
 	// Indicates whether new application objects should be permanently deleted. If not set, objects will not be permanently deleted.
-	PermanentlyDelete bool `json:"permanently_delete,omitempty"`
+	PermanentlyDelete *bool `json:"permanently_delete,omitempty"`
 
 	// Persist the app between generated credentials. Useful if the app needs to maintain owner ship of resources it creates
-	PersistApp bool `json:"persist_app,omitempty"`
+	PersistApp *bool `json:"persist_app,omitempty"`
 
 	// Default lease for generated credentials. If not set or set to 0, will use system default.
 	Ttl string `json:"ttl,omitempty"`

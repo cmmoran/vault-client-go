@@ -8,7 +8,7 @@ package schema
 // UiHeadersConfigureRequest struct for UiHeadersConfigureRequest
 type UiHeadersConfigureRequest struct {
 	// Returns multiple values if true
-	Multivalue bool `json:"multivalue,omitempty"`
+	Multivalue *bool `json:"multivalue,omitempty"`
 
 	// The values to set the header.
 	Values []string `json:"values,omitempty"`

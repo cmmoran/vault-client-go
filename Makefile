@@ -3,6 +3,7 @@ OPENAPI_SPEC_PATH           ?= openapi.json
 GENERATE_CONFIG_PATH        ?= generate/config.yaml
 GENERATE_TEMPLATES_PATH     ?= generate/templates
 OUTPUT_PATH                 ?= .
+CWD 						?= $(shell pwd)
 
 # To pass extra options to openapi-generator-cli, set this:
 OPENAPI_GENERATOR_EXTRA_OPTIONS ?=
@@ -32,8 +33,8 @@ delete-generated:
 generate:
 	docker run \
 		--rm \
-		--volume "${PWD}:/local" \
-		--user="$(shell id -u):$(shell id -g)" \
+		--volume "$(CWD):/local" \
+		--user "$(shell id -u):$(shell id -g)" \
 			openapitools/openapi-generator-cli:$(OPENAPI_GENERATOR_VERSION) generate \
 				--generator-name   go \
 				--engine           "handlebars" \

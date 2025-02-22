@@ -11,5 +11,5 @@ type CorsReadConfigurationResponse struct {
 
 	AllowedOrigins []string `json:"allowed_origins,omitempty"`
 
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 }

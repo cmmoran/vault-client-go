@@ -17,7 +17,7 @@ type PkiSignVerbatimRequest struct {
 	Csr string `json:"csr,omitempty"`
 
 	// If true, the Common Name will not be included in DNS or Email Subject Alternate Names. Defaults to false (CN is included).
-	ExcludeCnFromSans bool `json:"exclude_cn_from_sans,omitempty"`
+	ExcludeCnFromSans *bool `json:"exclude_cn_from_sans,omitempty"`
 
 	// A comma-separated string or list of extended key usages. Valid values can be found at https://golang.org/pkg/crypto/x509/#ExtKeyUsage -- simply drop the \"ExtKeyUsage\" part of the name. To remove all key usages from being set, set this value to an empty list.
 	ExtKeyUsage []string `json:"ext_key_usage,omitempty"`
@@ -47,7 +47,7 @@ type PkiSignVerbatimRequest struct {
 	PrivateKeyFormat string `json:"private_key_format,omitempty"`
 
 	// Whether or not to remove self-signed CA certificates in the output of the ca_chain field.
-	RemoveRootsFromChain bool `json:"remove_roots_from_chain,omitempty"`
+	RemoveRootsFromChain *bool `json:"remove_roots_from_chain,omitempty"`
 
 	// The Subject's requested serial number, if any. See RFC 4519 Section 2.31 'serialNumber' for a description of this field. If you want more than one, specify alternative names in the alt_names map using OID 2.5.4.5. This has no impact on the final certificate's Serial Number field.
 	SerialNumber string `json:"serial_number,omitempty"`
@@ -62,7 +62,7 @@ type PkiSignVerbatimRequest struct {
 	UriSans []string `json:"uri_sans,omitempty"`
 
 	// Whether or not to use PSS signatures when using a RSA key-type issuer. Defaults to false.
-	UsePss bool `json:"use_pss,omitempty"`
+	UsePss *bool `json:"use_pss,omitempty"`
 
 	// The requested user_ids value to place in the subject, if any, in a comma-delimited list. Restricted by allowed_user_ids. Any values are added with OID 0.9.2342.19200300.100.1.1.
 	UserIds []string `json:"user_ids,omitempty"`

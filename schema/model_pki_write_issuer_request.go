@@ -11,7 +11,7 @@ type PkiWriteIssuerRequest struct {
 	CrlDistributionPoints []string `json:"crl_distribution_points,omitempty"`
 
 	// Whether or not to enabling templating of the above AIA fields. When templating is enabled the special values '{{issuer_id}}', '{{cluster_path}}', '{{cluster_aia_path}}' are available, but the addresses are not checked for URL validity until issuance time. Using '{{cluster_path}}' requires /config/cluster's 'path' member to be set on all PR Secondary clusters and using '{{cluster_aia_path}}' requires /config/cluster's 'aia_path' member to be set on all PR secondary clusters.
-	EnableAiaUrlTemplating bool `json:"enable_aia_url_templating,omitempty"`
+	EnableAiaUrlTemplating *bool `json:"enable_aia_url_templating,omitempty"`
 
 	// Provide a name to the generated or existing issuer, the name must be unique across all issuers and not be the reserved value 'default'
 	IssuerName string `json:"issuer_name,omitempty"`

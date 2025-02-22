@@ -10,7 +10,7 @@ type PluginsCatalogReadPluginConfigurationWithTypeResponse struct {
 	// The args passed to plugin command.
 	Args []string `json:"args,omitempty"`
 
-	Builtin bool `json:"builtin,omitempty"`
+	Builtin *bool `json:"builtin,omitempty"`
 
 	// The command used to start the plugin. The executable defined in this command must exist in vault's plugin directory.
 	Command string `json:"command,omitempty"`

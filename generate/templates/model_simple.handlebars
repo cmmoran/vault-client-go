@@ -16,7 +16,7 @@ type {{classname}} struct {
 {{#with description}}
 	// {{{.}}}{{/with}}{{#if deprecated}}
 	// Deprecated{{/if}}
-	{{name}} {{{dataType}}} `json:"{{baseName}}{{#unless required}},omitempty{{/unless}}"{{#with withXml}} xml:"{{baseName}}{{#if isXmlAttribute}},attr{{/if}}"{{/with}}{{#with vendorExtensions.x-go-custom-tag}} {{{.}}}{{/with}}`
+	{{name}} {{#isBoolean}}*{{/isBoolean}}{{{dataType}}} `json:"{{baseName}}{{#unless required}},omitempty{{/unless}}"{{#with withXml}} xml:"{{baseName}}{{#if isXmlAttribute}},attr{{/if}}"{{/with}}{{#with vendorExtensions.x-go-custom-tag}} {{{.}}}{{/with}}`
 {{/each}}
 }
 {{>nullable_model}}

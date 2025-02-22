@@ -7,7 +7,7 @@ package schema
 
 // EncryptionKeyReadRotationConfigurationResponse struct for EncryptionKeyReadRotationConfigurationResponse
 type EncryptionKeyReadRotationConfigurationResponse struct {
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitempty"`
 
 	Interval string `json:"interval,omitempty"`
 

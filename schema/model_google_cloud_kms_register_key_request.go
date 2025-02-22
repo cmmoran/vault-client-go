@@ -11,5 +11,5 @@ type GoogleCloudKmsRegisterKeyRequest struct {
 	CryptoKey string `json:"crypto_key,omitempty"`
 
 	// Verify that the given Google Cloud KMS crypto key exists and is accessible before creating the storage entry in Vault. Set this to \"false\" if the key will not exist at creation time.
-	Verify bool `json:"verify,omitempty"`
+	Verify *bool `json:"verify,omitempty"`
 }

@@ -11,9 +11,9 @@ import "time"
 type LeaderStatusResponse struct {
 	ActiveTime time.Time `json:"active_time,omitempty"`
 
-	HaEnabled bool `json:"ha_enabled,omitempty"`
+	HaEnabled *bool `json:"ha_enabled,omitempty"`
 
-	IsSelf bool `json:"is_self,omitempty"`
+	IsSelf *bool `json:"is_self,omitempty"`
 
 	LastWal int64 `json:"last_wal,omitempty"`
 
@@ -21,7 +21,7 @@ type LeaderStatusResponse struct {
 
 	LeaderClusterAddress string `json:"leader_cluster_address,omitempty"`
 
-	PerformanceStandby bool `json:"performance_standby,omitempty"`
+	PerformanceStandby *bool `json:"performance_standby,omitempty"`
 
 	PerformanceStandbyLastRemoteWal int64 `json:"performance_standby_last_remote_wal,omitempty"`
 

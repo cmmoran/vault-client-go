@@ -9,7 +9,7 @@ package schema
 type RateLimitQuotasReadResponse struct {
 	BlockInterval int32 `json:"block_interval,omitempty"`
 
-	Inheritable bool `json:"inheritable,omitempty"`
+	Inheritable *bool `json:"inheritable,omitempty"`
 
 	Interval int32 `json:"interval,omitempty"`
 

@@ -8,7 +8,7 @@ package schema
 // KubernetesConfigureRequest struct for KubernetesConfigureRequest
 type KubernetesConfigureRequest struct {
 	// Disable defaulting to the local CA certificate and service account JWT when running in a Kubernetes pod.
-	DisableLocalCaJwt bool `json:"disable_local_ca_jwt,omitempty"`
+	DisableLocalCaJwt *bool `json:"disable_local_ca_jwt,omitempty"`
 
 	// PEM encoded CA certificate to use to verify the Kubernetes API server certificate. Defaults to the local pod's CA if found.
 	KubernetesCaCert string `json:"kubernetes_ca_cert,omitempty"`
