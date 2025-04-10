@@ -31,7 +31,7 @@ delete-generated:
 		schema
 
 generate:
-	docker run \
+	docker -c default run \
 		--rm \
 		--volume "$(CWD):/local" \
 		--user "$(shell id -u):$(shell id -g)" \
